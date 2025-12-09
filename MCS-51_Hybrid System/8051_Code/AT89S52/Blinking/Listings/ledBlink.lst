@@ -1,0 +1,110 @@
+C51 COMPILER V9.60.7.0   LEDBLINK                                                          08/31/2025 09:32:57 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE LEDBLINK
+OBJECT MODULE PLACED IN .\Objects\ledBlink.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ledBlink.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\
+                    -ledBlink.lst) TABS(2) OBJECT(.\Objects\ledBlink.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2           
+   3           sbit led0 = P0^7; // 5mm red led
+   4           sbit led1 = P1^7; // sck/3mm-blue led
+   5           sbit led2 = P2^7; // 5mm green led
+   6           sbit led3 = P3^7; // 5mm blue led
+   7           
+   8           void delay(unsigned int);
+   9          
+  10          
+  11           void delay(unsigned int ms)
+  12          {
+  13   1          unsigned int i;
+  14   1          for(i=0; i<ms; i++)
+  15   1          {
+  16   2              TMOD &= 0xF0;  // Clear Timer0 control bits
+  17   2              TMOD |= 0x01;  // Set Timer0 in Mode1 (16-bit)
+  18   2      
+  19   2              TH0 = 0xFC;    // Load high byte for 1ms delay
+  20   2              TL0 = 0x66;    // Load low byte  for 1ms delay
+  21   2      
+  22   2              TF0 = 0;       // Clear Timer0 overflow flag
+  23   2              TR0 = 1;       // Start Timer0
+  24   2      
+  25   2              while(TF0 == 0); // Wait until Timer0 overflows
+  26   2      
+  27   2              TR0 = 0;       // Stop Timer0
+  28   2              TF0 = 0;       // Clear overflow flag again
+  29   2          }
+  30   1       }
+  31          
+  32          void ledBlink(unsigned char ledNum, unsigned int mstime) {
+  33   1          switch(ledNum) {
+  34   2              case 0:
+  35   2                  led0 = 1; // Turn LED on
+  36   2                  delay(mstime);
+  37   2                  led0 = 0; // Turn LED off
+  38   2                  delay(mstime);
+  39   2                  break;
+  40   2              case 1:
+  41   2                  led1 = 1;
+  42   2                  delay(mstime);
+  43   2                  led1 = 0;
+  44   2                  delay(mstime);
+  45   2                  break;
+  46   2              case 2:
+  47   2                  led2 = 1;
+  48   2                  delay(mstime);
+  49   2                  led2 = 0;
+  50   2                  delay(mstime);
+  51   2                  break;
+  52   2              case 3:
+  53   2                  led3 = 1;
+  54   2                  delay(mstime);
+C51 COMPILER V9.60.7.0   LEDBLINK                                                          08/31/2025 09:32:57 PAGE 2   
+
+  55   2                  led3 = 0;
+  56   2                  delay(mstime);
+  57   2                  break;
+  58   2              default:
+  59   2                  // Invalid LED number, do nothing
+  60   2                  break;
+  61   2          }
+  62   1      }
+  63          
+  64           
+  65          
+  66           void main()
+  67           {
+  68   1            //P1=0x01; //  Port1, pin-1 is high, others are low.
+  69   1            //P1=0x08; //  Port1, pin-3 is high, others are low.
+  70   1          P0 = 0x00;
+  71   1          P1 = 0x00;
+  72   1          P2 = 0x00;
+  73   1          P3 = 0x00;
+  74   1          
+  75   1           while(1)
+  76   1           {
+  77   2             //ledBlink(0,7000); 
+  78   2             //ledBlink(1,500); 
+  79   2             //ledBlink(2,2000); 
+  80   2             //ledBlink(3,5000); 
+  81   2             
+  82   2           }
+  83   1       }
+  84          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    112    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
