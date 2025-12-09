@@ -1,1 +1,0 @@
-# Intel_MCS-51_Hybrid-System
