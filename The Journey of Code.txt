@@ -1,0 +1,159 @@
+|-----------------------------------------------------|
+|-----------------------------------------------------|
+|Understanding Computer Language Levels and Execution.|
+|-----------------------------------------------------|
+|-----------------------------------------------------|
+
+Computer language:
+A computer language is a way to communicate with computers. 
+It’s a set of instructions that tells a computer what to do.
+Just like humans use different languages to talk to each other, computers have their own languages that programmers use to write software, websites, apps, and more.
+
+
+Computer Language level:
+There are three main types of computer languages:
+           1.Machine Language (Low-Level) – Directly understood by computers (binary code: 0s and 1s).
+           2.Assembly Language – A step above machine code, uses simple instructions like MOV or ADD.
+           3.High-Level Languages – Easier for humans to read and write (like Python, Java, or C++).
+
+
+
+Programming Language:
+A programming language is a type of computer language used to write instructions that a computer can understand and execute.
+It allows developers to create software, apps, games, websites, and more.
+
+Key Points:
+*Purpose: Translates human logic into commands a computer can follow.
+*Readable: Uses keywords, symbols, and rules (syntax) that make sense to humans.
+*Execution: The code is either compiled (translated all at once) or interpreted (translated line by line).
+
+
+Examples of Programming Languages:
+*Python – Easy to learn, great for beginners.
+*JavaScript – Used for websites and web apps.
+*C++ – Powerful, used for games and systems programming.
+*Java – Common in enterprise software and Android apps.
+
+
+Programming Language Level:
+Programming languages are often categorized by their level of abstraction – how closely they interact with computer hardware. Here's a breakdown:
+
+   1.Low-Level Languages.
+      *Close to hardware – Directly interacts with the computer’s CPU and memory.
+      *Fast and efficient but harder for humans to read.
+
+   Examples:-Machine Language – Binary (0s and 1s).
+            -Assembly Language – Uses mnemonics like MOV, ADD
+
+   2. Middle-Level Languages.
+       *Balances hardware control and readability.
+       *Can perform system-level tasks but with simpler syntax than low-level languages.
+Examples:
+
+   *C – Often called a "middle-level" language because it can be used for system programming and application development.
+   *C++ – Extends C with more features (object-oriented programming).
+
+   3. High-Level Languages
+       *Human-friendly – Abstracted from hardware details.
+       *Easier to write, read, and maintain but slightly slower than low-level languages.
+Examples:
+
+   *Python – Simple and readable.
+   *Java – Portable and widely used.
+   *JavaScript – Runs in browsers for web development.
+
+   4. Very High-Level Languages
+       *Extremely abstracted – Focuses on solving problems without managing system resources.
+       *Often used for specialized tasks like AI or scripting.
+Examples:
+
+   *SQL – For databases.
+   *MATLAB – For mathematical computations.
+
+########
+
+
+##Converting high-level code to low-level code is essential for making programs run directly on hardware.
+This process is called compilation or interpretation. Here's why and how it works:
+
+-Why Convert High to Low-Level Code?
+
+*Execution – Computers only understand machine language (binary). High-level code must be translated for the CPU to execute it.
+
+*Performance – Low-level code is faster and more efficient because it directly controls hardware.
+
+*Optimization – Translating to low-level code allows the program to be optimized for speed and memory usage.
+
+*Portability – High-level languages are written once and compiled to run on different machines (Java, for example).
+
+
+How It Works (The Process):
+1.Compilation (For Languages like C, C++)
+
+*A compiler translates the entire high-level code into low-level code (machine code) at once.
+
+Example:
+For=c 
+int x = 10;  // High-level code
+
+Becomes machine code:
+For php=
+10110000 00001010  (in binary)
+
+2.Interpretation (For Languages like Python, JavaScript)
+
+*An interpreter translates and executes the code line by line.
+
+Example:
+For python=
+print("Hello")  # Python code
+Interpreter runs it directly without producing separate machine code.
+
+3.Assembly (For Direct Low-Level Control)
+
+*High-level languages can be compiled to assembly language before turning into machine code.
+
+Example:
+For assembly
+MOV AX, 10  ; Assembly code
+
+###Example Flow:
+-Python Code (High-Level)
+
+for python=
+x = 5 + 3
+
+-Assembly (Mid-Level)
+assembly
+MOV AX, 5
+ADD AX, 3
+
+-Machine Code (Low-Level)
+
+10101010 00000101
+00000101 00000011
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
